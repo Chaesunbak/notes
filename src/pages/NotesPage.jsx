@@ -1,12 +1,14 @@
 import NoteCard from "../components/NoteCard";
 import { useState, useEffect } from "react";
 import { db } from "../firebase";
-import { doc ,getDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import Profile from "../components/Profile";
 import GoogleAuth from "../components/GoogleAuth";
+import Controls from "../components/Controls";
 
 const NotesPage = () => {
     const [notes, setNotes] = useState([]);
+    const [selectedNote, setSelectedNote] = useState(null);
 
     const user = JSON.parse(localStorage.getItem('user'))
 
@@ -18,18 +20,15 @@ const NotesPage = () => {
 
 
     const getNotes = async () => {
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-
-        const data = docSnap.data();
-
-        setNotes(data.notes);
-        } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        try {
+            const querySnapshot = await getDocs(collection(db, "users", user.uid, "notes"));
+            let notes = [];
+            querySnapshot.forEach((note) => {
+                notes.push(note.data());
+            });
+            setNotes(notes);
+        } catch (e) {
+            console.error(e);
         }
     };
 
@@ -37,8 +36,9 @@ const NotesPage = () => {
         <div>
             {user ? <Profile user={user}/> : <GoogleAuth />}
             {notes.map((note) => (
-                <NoteCard note={note} key={note.$id} />
+                <NoteCard note={note} key={note.$id} setNotes={setNotes} setSelectedNote={setSelectedNote}/>
             ))}
+            <Controls notes={notes} setNotes={setNotes} selectedNote={selectedNote} />
         </div>
     );
 };

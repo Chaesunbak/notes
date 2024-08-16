@@ -32,5 +32,7 @@ export const getColors = (colors) => {
             return ["#9BD1DE", "#A6DCE9", "#18181A"]
         case 'color-yellow':
             return ["#FFEFBE", "#FFF5DF", "#18181A"]
+        case 'color-green':
+            return ["#AFDA9F", "#BCDEAF", "#18181A"]
     }
 }

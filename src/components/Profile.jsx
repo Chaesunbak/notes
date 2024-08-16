@@ -1,7 +1,12 @@
-const Profile = (user) => {
+const Profile = () => {
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    console.log(user);
+
     return (
         <div className="profile">
-            user.name
+            {user.name}
         </div>
     )
 }
