@@ -83,12 +83,6 @@ textarea:focus {
   justify-content: center;
 }
 
-.google_auth {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -169,16 +163,17 @@ textarea:focus {
 }
 
 .google_auth {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  margin-top: 10px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   background-color: white;
-  color: #5f6368; /* 구글의 기본 텍스트 색상 */
-  font-size: 16px;
+  color: #5f6368;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
