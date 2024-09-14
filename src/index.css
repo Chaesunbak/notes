@@ -20,7 +20,7 @@ body {
 #app {
   background-color: #212228;
   background-image: linear-gradient(#292a30 0.1em, transparent 0.1em),
-      linear-gradient(90deg, #292a30 0.1em, transparent 0.1em);
+    linear-gradient(90deg, #292a30 0.1em, transparent 0.1em);
   background-size: 4em 4em;
   height: 100vh;
   position: relative;
@@ -31,9 +31,9 @@ body {
   width: 400px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% /
-                  0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg
-                  0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
   position: absolute;
 }
 
@@ -91,10 +91,10 @@ textarea:focus {
 
 @keyframes spin {
   from {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -121,9 +121,9 @@ textarea:focus {
   padding: 1em 1em;
   border-radius: 40px;
 
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% /
-                  0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg
-                  0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
   z-index: 10000;
 }
 
@@ -164,6 +164,26 @@ textarea:focus {
   border-radius: 15%;
 }
 
-#delete-btn:hover{
+#delete-btn:hover {
   backdrop-filter: brightness(80%);
+}
+
+.google_auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background-color: white;
+  color: #5f6368; /* 구글의 기본 텍스트 색상 */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google_auth:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
